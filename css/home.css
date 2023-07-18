@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@200;400;600&family=Judson:wght@700&display=swap");
+body {
+  height: 100vh;
+  width: 100vw;
+  color: #eee;
+  font-family: "Jost", Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  margin: 0;
+}
+body .bullet {
+  font-family: Arial;
+  padding: 0 4px;
+}
+body .text-with-bg {
+  background-clip: text;
+  background-image: url("../assets/gold.jpg");
+  background-repeat: repeat;
+  background-size: auto 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+body #home-image {
+  height: 100%;
+  width: 60vw;
+  background-image: url("../assets/bowl.png");
+  background-position: 75% center;
+  background-size: auto 100vh;
+  -webkit-clip-path: polygon(0 0, 100% 0%, 45vw 100%, 0% 100%);
+          clip-path: polygon(0 0, 100% 0%, 45vw 100%, 0% 100%);
+  position: absolute;
+}
+body #home-info {
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  text-align: center;
+  background-color: #001e0f;
+}
+body #home-info,
+body #home-info #not-contact {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+body #home-info .wrapper {
+  width: 40vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body #home-info #not-contact {
+  width: 100%;
+  align-items: flex-end;
+  flex: 1;
+  gap: 20px;
+}
+body #home-info #not-contact .wrapper {
+  gap: 20px;
+  flex-direction: column;
+}
+body #home-info #not-contact .wrapper h1 {
+  line-height: 2rem;
+  margin: 0;
+  text-transform: uppercase;
+}
+body #home-info #not-contact .wrapper h1 span.text-with-bg {
+  font-family: "Judson", "Georgia", "Times New Roman", Times, serif;
+  font-size: 3.5rem;
+  font-weight: bold;
+}
+body #home-info #not-contact .wrapper h1 span.subheader {
+  font-family: "Jost", Arial, Helvetica, sans-serif;
+  font-size: 1.55rem;
+  font-weight: normal;
+}
+body #home-info #not-contact .wrapper a#book-now {
+  height: 60px;
+  width: 120px;
+  background-image: url("../assets/gold.jpg");
+  background-size: cover;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #2b1a12;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  line-height: 1.5rem;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+body #home-info #not-contact .wrapper a#book-now:hover {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  color: #733619;
+}
+body #home-info #not-contact .wrapper nav {
+  font-weight: 200;
+}
+body #home-info #not-contact .wrapper nav a {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+body #home-info #not-contact .wrapper nav a:hover {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+body #contact {
+  width: 100%;
+  background-color: #111;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 20px;
+}
+body #contact .wrapper {
+  justify-content: space-evenly;
+}
+body #contact .wrapper #spacer {
+  height: 80px;
+  width: 2px;
+  background-image: url("../assets/gold.jpg");
+  background-size: cover;
+}/*# sourceMappingURL=home.css.map */
