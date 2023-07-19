@@ -23,7 +23,7 @@ body #home-image {
   height: 100%;
   width: 60vw;
   background-image: url("../assets/bowl.png");
-  background-position: 75% center;
+  background-position: 100% center;
   background-size: auto 100vh;
   -webkit-clip-path: polygon(0 0, 100% 0%, 45vw 100%, 0% 100%);
           clip-path: polygon(0 0, 100% 0%, 45vw 100%, 0% 100%);
@@ -59,7 +59,10 @@ body #home-info #not-contact .wrapper {
   flex-direction: column;
 }
 body #home-info #not-contact .wrapper h1 {
-  line-height: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 2.5rem;
   margin: 0;
   text-transform: uppercase;
 }
@@ -97,6 +100,7 @@ body #home-info #not-contact .wrapper nav {
   font-weight: 200;
 }
 body #home-info #not-contact .wrapper nav a {
+  display: inline-block;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -120,4 +124,36 @@ body #contact .wrapper #spacer {
   width: 2px;
   background-image: url("../assets/gold.jpg");
   background-size: cover;
+}
+
+@media only screen and (max-width: 720px) {
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  body #home-image {
+    height: 400px;
+    width: 100%;
+    background-position: center;
+    -webkit-clip-path: initial;
+            clip-path: initial;
+    position: relative;
+  }
+  body #home-info,
+  body #home-info #not-contact {
+    flex: 1;
+  }
+  body #home-info #not-contact .wrapper,
+  body #home-info #contact .wrapper {
+    width: 100%;
+    margin: auto;
+  }
+  body #home-info #not-contact .wrapper h1 {
+    height: 150px;
+    width: 300px;
+    background-color: rgba(9, 33, 0, 0.75);
+    position: absolute;
+    top: 125px;
+    left: calc(50% - 150px);
+  }
 }/*# sourceMappingURL=home.css.map */
