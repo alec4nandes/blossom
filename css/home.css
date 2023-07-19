@@ -1,18 +1,46 @@
-@import url("https://fonts.googleapis.com/css2?family=Jost:wght@200;400;600&family=Judson:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@200;400;600&family=Judson:wght@400;700&display=swap");
 body {
-  height: 100vh;
-  width: 100vw;
-  background-color: #111;
-  color: #eee;
-  font-family: "Jost", Arial, Helvetica, sans-serif;
-  font-size: 1.2rem;
+  --bg-home-image-height: 400px;
   margin: 0;
 }
-body .bullet {
+body,
+body button {
+  font-family: "Jost", Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+}
+body button:hover {
+  cursor: pointer;
+}
+body h1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  text-transform: uppercase;
+}
+body h1 span.text-with-bg {
+  font-family: "Judson", "Georgia", "Times New Roman", Times, serif;
+  font-size: 3.5rem;
+  font-weight: bold;
+  line-height: 3.5rem;
+}
+body h1 span.subheader {
+  font-family: "Jost", Arial, Helvetica, sans-serif;
+  font-size: 1.55rem;
+  font-weight: normal;
+  line-height: 1.55rem;
+}
+body header {
+  min-height: 380px;
+  height: 100vh;
+  width: 100vw;
+  color: #eee;
+}
+body header .bullet {
   font-family: Arial;
   padding: 0 4px;
 }
-body .text-with-bg {
+body header .text-with-bg {
   background-clip: text;
   background-image: url("../assets/gold.jpg");
   background-repeat: repeat;
@@ -20,7 +48,7 @@ body .text-with-bg {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-body #home-image {
+body header #home-image {
   min-height: 380px;
   height: 100%;
   width: 60vw;
@@ -29,9 +57,17 @@ body #home-image {
   background-size: auto 100vh;
   -webkit-clip-path: polygon(0 0, 100% 0%, 45vw 100%, 0% 100%);
           clip-path: polygon(0 0, 100% 0%, 45vw 100%, 0% 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
 }
-body #home-info {
+body header #home-image h1 {
+  background-color: rgba(9, 33, 0, 0.75);
+  display: none;
+  padding: 15px 20px 20px;
+}
+body header #home-info {
   min-height: 380px;
   height: 100%;
   width: 100%;
@@ -39,13 +75,13 @@ body #home-info {
   text-align: center;
   background-color: #001e0f;
 }
-body #home-info,
-body #home-info #not-contact {
+body header #home-info,
+body header #home-info #not-contact {
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
-body #home-info .wrapper {
+body header #home-info .wrapper {
   width: 40vw;
   box-sizing: border-box;
   display: flex;
@@ -53,36 +89,17 @@ body #home-info .wrapper {
   justify-content: center;
   padding: 10px;
 }
-body #home-info #not-contact {
+body header #home-info #not-contact {
   width: 100%;
   align-items: flex-end;
   flex: 1;
   gap: 20px;
 }
-body #home-info #not-contact .wrapper {
+body header #home-info #not-contact .wrapper {
   gap: 20px;
   flex-direction: column;
 }
-body #home-info #not-contact .wrapper h1 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 0;
-  text-transform: uppercase;
-}
-body #home-info #not-contact .wrapper h1 span.text-with-bg {
-  font-family: "Judson", "Georgia", "Times New Roman", Times, serif;
-  font-size: 3.5rem;
-  font-weight: bold;
-  line-height: 3.5rem;
-}
-body #home-info #not-contact .wrapper h1 span.subheader {
-  font-family: "Jost", Arial, Helvetica, sans-serif;
-  font-size: 1.55rem;
-  font-weight: normal;
-  line-height: 1.55rem;
-}
-body #home-info #not-contact .wrapper a#book-now {
+body header #home-info #not-contact .wrapper a#book-now {
   width: 100px;
   background-image: url("../assets/gold.jpg");
   background-size: cover;
@@ -98,107 +115,164 @@ body #home-info #not-contact .wrapper a#book-now {
   text-transform: uppercase;
   text-decoration: none;
 }
-body #home-info #not-contact .wrapper a#book-now:hover {
+body header #home-info #not-contact .wrapper a#book-now:hover {
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
   color: #733619;
 }
-body #home-info #not-contact .wrapper nav {
+body header #home-info #not-contact .wrapper nav {
   font-weight: 200;
 }
-body #home-info #not-contact .wrapper nav a {
-  display: inline-block;
+body header #home-info #not-contact .wrapper nav a,
+body header #home-info #not-contact .wrapper nav button {
   font-weight: bold;
   text-transform: uppercase;
 }
-body #home-info #not-contact .wrapper nav a:hover {
+body header #home-info #not-contact .wrapper nav a:hover,
+body header #home-info #not-contact .wrapper nav button:hover {
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
-body #contact {
+body header #home-info #not-contact .wrapper nav a {
+  display: inline-block;
+}
+body header #home-info #not-contact .wrapper nav button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+  border: 0;
+  font-weight: bold;
+}
+body header #contact {
   width: 100%;
   background-color: #111;
   box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding: 20px;
 }
-body #contact .wrapper {
+body header #contact .wrapper {
   justify-content: space-evenly;
 }
-body #contact .wrapper a {
+body header #contact .wrapper a {
   text-decoration: none;
 }
-body #contact .wrapper a img {
+body header #contact .wrapper a img {
   height: 30px;
   width: auto;
   border-radius: 50%;
   margin: 5px 3px 0;
 }
-body #contact .wrapper a img:hover {
+body header #contact .wrapper a img:hover {
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
-body #contact .wrapper #spacer {
+body header #contact .wrapper #spacer {
   height: 80px;
   width: 2px;
   background-image: url("../assets/gold.jpg");
   background-size: cover;
 }
+body main#services {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 15px;
+}
+body main#services #main-wrapper {
+  max-width: 750px;
+  margin: auto;
+}
+body main#services #main-wrapper #services-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+body main#services #main-wrapper #services-wrapper .header-image {
+  height: 2rem;
+}
+body main#services #main-wrapper h2 {
+  display: inline;
+}
+body main#services #main-wrapper h2,
+body main#services #main-wrapper h3 {
+  font-family: "Judson", "Times New Roman", Times, serif;
+}
+body main#services #main-wrapper h2 {
+  text-align: center;
+}
+body main#services #main-wrapper section {
+  border-top: 1.5px solid #bfe4d2;
+}
+body main#services #main-wrapper section h3 {
+  color: #166d41;
+}
+body main#services #main-wrapper section h3 span {
+  color: #00a553;
+  font-weight: normal;
+}
+body main#services #main-wrapper section p {
+  font-size: 1rem;
+}
 
 @media only screen and (max-width: 720px) {
-  body {
+  body header {
+    height: auto;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    --bg-home-image-height: 400px;
   }
-  body #home-image {
+  body header #home-image {
     height: var(--bg-home-image-height);
     min-height: var(--bg-home-image-height);
     width: 100%;
     background-position: center;
+    background-size: cover;
     -webkit-clip-path: initial;
             clip-path: initial;
+    flex: 1;
     position: relative;
   }
-  body #home-info,
-  body #home-info #not-contact {
-    flex: 1;
+  body header #home-image h1 {
+    display: flex;
   }
-  body #home-info #not-contact .wrapper,
-  body #home-info #contact .wrapper {
+  body header #home-info {
+    min-height: auto;
+  }
+  body header #home-info,
+  body header #home-info #not-contact {
+    flex: 0;
+  }
+  body header #home-info #not-contact .wrapper,
+  body header #home-info #contact .wrapper {
     width: 100%;
     margin: auto;
   }
-  body #home-info #not-contact .wrapper h1 {
-    --h1-height: 150px;
-    --h1-width: 300px;
-    height: 150px;
-    width: 300px;
-    background-color: rgba(9, 33, 0, 0.75);
-    position: absolute;
-    top: calc(var(--bg-home-image-height) / 2 - var(--h1-height) / 2);
-    left: calc(50% - var(--h1-width) / 2);
+  body header #home-info #not-contact .wrapper h1 {
+    display: none;
+  }
+}
+@media only screen and (max-width: 850px), screen and (max-height: 400px) {
+  body,
+  body button {
+    font-size: 1rem;
+  }
+  body header #home-image {
+    background-size: cover;
   }
 }
 @media only screen and (max-height: 450px) {
-  body {
-    font-size: 1rem;
-  }
-  body #home-info #not-contact .wrapper {
-    gap: 12px;
-  }
-  body #home-info #not-contact .wrapper h1 span.text-with-bg {
+  body h1 span.text-with-bg {
     font-size: 2.8rem;
     line-height: 2.8rem;
   }
-  body #home-info #not-contact .wrapper h1 span.subheader {
+  body h1 span.subheader {
     font-size: 1.225rem;
     line-height: 1.225rem;
   }
-  body #home-info #not-contact .wrapper a#book-now {
+  body header #home-info #not-contact .wrapper {
+    gap: 12px;
+  }
+  body header #home-info #not-contact .wrapper a#book-now {
     flex-direction: row;
     gap: 5px;
-  }
-  body #home-info #contact {
-    padding: 8px;
   }
 }/*# sourceMappingURL=home.css.map */
