@@ -2,6 +2,7 @@
 body {
   height: 100vh;
   width: 100vw;
+  background-color: #111;
   color: #eee;
   font-family: "Jost", Arial, Helvetica, sans-serif;
   font-size: 1.2rem;
@@ -20,6 +21,7 @@ body .text-with-bg {
   -webkit-text-fill-color: transparent;
 }
 body #home-image {
+  min-height: 380px;
   height: 100%;
   width: 60vw;
   background-image: url("../assets/bowl.png");
@@ -30,8 +32,9 @@ body #home-image {
   position: absolute;
 }
 body #home-info {
-  width: 100%;
+  min-height: 380px;
   height: 100%;
+  width: 100%;
   align-items: center;
   text-align: center;
   background-color: #001e0f;
@@ -44,9 +47,11 @@ body #home-info #not-contact {
 }
 body #home-info .wrapper {
   width: 40vw;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 10px;
 }
 body #home-info #not-contact {
   width: 100%;
@@ -62,7 +67,6 @@ body #home-info #not-contact .wrapper h1 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  line-height: 2.5rem;
   margin: 0;
   text-transform: uppercase;
 }
@@ -70,15 +74,16 @@ body #home-info #not-contact .wrapper h1 span.text-with-bg {
   font-family: "Judson", "Georgia", "Times New Roman", Times, serif;
   font-size: 3.5rem;
   font-weight: bold;
+  line-height: 3.5rem;
 }
 body #home-info #not-contact .wrapper h1 span.subheader {
   font-family: "Jost", Arial, Helvetica, sans-serif;
   font-size: 1.55rem;
   font-weight: normal;
+  line-height: 1.55rem;
 }
 body #home-info #not-contact .wrapper a#book-now {
-  height: 60px;
-  width: 120px;
+  width: 100px;
   background-image: url("../assets/gold.jpg");
   background-size: cover;
   border-radius: 10px;
@@ -89,6 +94,7 @@ body #home-info #not-contact .wrapper a#book-now {
   justify-content: center;
   flex-direction: column;
   line-height: 1.5rem;
+  padding: 10px;
   text-transform: uppercase;
   text-decoration: none;
 }
@@ -119,6 +125,18 @@ body #contact {
 body #contact .wrapper {
   justify-content: space-evenly;
 }
+body #contact .wrapper a {
+  text-decoration: none;
+}
+body #contact .wrapper a img {
+  height: 30px;
+  width: auto;
+  border-radius: 50%;
+  margin: 5px 3px 0;
+}
+body #contact .wrapper a img:hover {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
 body #contact .wrapper #spacer {
   height: 80px;
   width: 2px;
@@ -130,9 +148,11 @@ body #contact .wrapper #spacer {
   body {
     display: flex;
     flex-direction: column;
+    --bg-home-image-height: 400px;
   }
   body #home-image {
-    height: 400px;
+    height: var(--bg-home-image-height);
+    min-height: var(--bg-home-image-height);
     width: 100%;
     background-position: center;
     -webkit-clip-path: initial;
@@ -149,11 +169,36 @@ body #contact .wrapper #spacer {
     margin: auto;
   }
   body #home-info #not-contact .wrapper h1 {
+    --h1-height: 150px;
+    --h1-width: 300px;
     height: 150px;
     width: 300px;
     background-color: rgba(9, 33, 0, 0.75);
     position: absolute;
-    top: 125px;
-    left: calc(50% - 150px);
+    top: calc(var(--bg-home-image-height) / 2 - var(--h1-height) / 2);
+    left: calc(50% - var(--h1-width) / 2);
+  }
+}
+@media only screen and (max-height: 450px) {
+  body {
+    font-size: 1rem;
+  }
+  body #home-info #not-contact .wrapper {
+    gap: 12px;
+  }
+  body #home-info #not-contact .wrapper h1 span.text-with-bg {
+    font-size: 2.8rem;
+    line-height: 2.8rem;
+  }
+  body #home-info #not-contact .wrapper h1 span.subheader {
+    font-size: 1.225rem;
+    line-height: 1.225rem;
+  }
+  body #home-info #not-contact .wrapper a#book-now {
+    flex-direction: row;
+    gap: 5px;
+  }
+  body #home-info #contact {
+    padding: 8px;
   }
 }/*# sourceMappingURL=home.css.map */
