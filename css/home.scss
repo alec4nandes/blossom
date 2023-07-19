@@ -1,10 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Jost:wght@200;400;600&family=Judson:wght@400;700&display=swap");
 
-$bg-home-image-height: 400px;
+$header-min-height: 380px;
 
 body {
-    --bg-home-image-height: 400px;
-
     margin: 0;
 
     &,
@@ -41,10 +39,8 @@ body {
         }
     }
 
-    $min-height: 380px;
-
     header {
-        min-height: $min-height;
+        min-height: $header-min-height;
         height: 100vh;
         width: 100vw;
         color: #eee;
@@ -63,13 +59,19 @@ body {
             -webkit-text-fill-color: transparent;
         }
 
-        #home-image {
-            min-height: $min-height;
+        #home-image,
+        #home-info {
+            min-height: $header-min-height;
             height: 100%;
-            width: 60vw;
+        }
+
+        $home-image-width: 60vw;
+
+        #home-image {
+            width: $home-image-width;
             background-image: url("../assets/bowl.png");
             background-position: 100% center;
-            background-size: auto 100vh;
+            background-size: cover;
             clip-path: polygon(0 0, 100% 0%, 45vw 100%, 0% 100%);
             display: flex;
             align-items: center;
@@ -84,8 +86,6 @@ body {
         }
 
         #home-info {
-            min-height: $min-height;
-            height: 100%;
             width: 100%;
             align-items: center;
             text-align: center;
@@ -99,7 +99,7 @@ body {
             }
 
             .wrapper {
-                width: 40vw;
+                width: 100vw - $home-image-width;
                 box-sizing: border-box;
                 display: flex;
                 align-items: center;
@@ -178,26 +178,31 @@ body {
             .wrapper {
                 justify-content: space-evenly;
 
-                a {
-                    text-decoration: none;
-
-                    img {
-                        height: 30px;
-                        width: auto;
-                        border-radius: 50%;
-                        margin: 5px 3px 0;
-
-                        &:hover {
-                            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-                        }
-                    }
-                }
-
                 #spacer {
                     height: 80px;
                     width: 2px;
                     background-image: url("../assets/gold.jpg");
                     background-size: cover;
+                }
+
+                #social {
+                    font-family: "Judson", "Times New Roman", Times, serif;
+                    font-weight: bold;
+
+                    a {
+                        text-decoration: none;
+
+                        img {
+                            height: 30px;
+                            width: auto;
+                            border-radius: 50%;
+                            margin: 5px 3px 0;
+
+                            &:hover {
+                                box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -256,6 +261,8 @@ body {
     }
 }
 
+// MEDIA QUERIES
+
 @media only screen and (max-width: 720px) {
     body {
         header {
@@ -265,11 +272,9 @@ body {
             flex-direction: column;
 
             #home-image {
-                height: var(--bg-home-image-height);
-                min-height: var(--bg-home-image-height);
+                min-height: var($header-min-height);
                 width: 100%;
                 background-position: center;
-                background-size: cover;
                 clip-path: initial;
                 flex: 1;
                 position: relative;
@@ -307,23 +312,19 @@ body {
     }
 }
 
+$media-max-height: 450px;
+
 @media only screen and (max-width: 850px),
-    screen and (max-height: $bg-home-image-height) {
+    screen and (max-height: $media-max-height) {
     body {
         &,
         button {
             font-size: 1rem;
         }
-
-        header {
-            #home-image {
-                background-size: cover;
-            }
-        }
     }
 }
 
-@media only screen and (max-height: 450px) {
+@media only screen and (max-height: $media-max-height) {
     body {
         h1 {
             span.text-with-bg {
@@ -346,6 +347,46 @@ body {
                         a#book-now {
                             flex-direction: row;
                             gap: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-height: 700px) and (min-width: 1000px) {
+    body {
+        &,
+        button {
+            font-size: clamp(1.2rem, 2vw, 1.75rem);
+        }
+
+        header {
+            #home-info {
+                #not-contact {
+                    .wrapper {
+                        gap: clamp(0.75rem, 2vw, 2rem);
+
+                        h1 {
+                            span.text-with-bg {
+                                $clamp: clamp(3.5rem, 5vw, 5rem);
+                                font-size: $clamp;
+                                line-height: $clamp;
+                            }
+
+                            span.subheader {
+                                $clamp: clamp(1.55rem, 2.2vw, 2.2rem);
+                                font-size: $clamp;
+                                line-height: $clamp;
+                            }
+                        }
+
+                        a#book-now {
+                            height: fit-content;
+                            width: fit-content;
+                            gap: 0.75vw;
+                            padding: 1vw 2.5vw;
                         }
                     }
                 }
